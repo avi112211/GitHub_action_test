@@ -54,6 +54,8 @@ jobs:
         run: |
           mkdir outputs # output dir for the fused app and appdome_certificate
           pip3 install -r appdome/requirements.txt
+          python3 appdome/appdome-api-python/appdome_api.py --app main/demo_app.apk -ps -cf ${{ secrets.SHA1 }} \
+                    --output outputs/fused_app.apk --certificate_output outputs/certificate.pdf
           python3 appdome/appdome-api-python/appdome_api.py --app <apk/aab file> --sign_on_appdome --keystore <keystore file> \
                   --keystore_pass <keystore password> --keystore_alias <key alias> --key_pass <key password> \
                   --output outputs/<output apk/aab> --certificate_output outputs/<output certificate pdf>
@@ -68,8 +70,6 @@ jobs:
         run: |
           mkdir outputs # output dir for the fused app and appdome_certificate
           pip3 install -r appdome/requirements.txt
-          python3 appdome/appdome-api-python/appdome_api.py --app main/demo_app.apk -ps -cf ${{ secrets.SHA1 }} \
-                    --output outputs/fused_app.apk --certificate_output outputs/certificate.pdf
           python3 appdome/appdome-api-python/appdome_api.py --app <ipa file> --sign_on_appdome --keystore <p12 file> \
                   --keystore_pass <p12 password> --provisioning_profiles <provisioning profile file> <another provisioning profile file if needed> \
                   --entitlements <entitlements file> <another entitlements file if needed> --output <output ipa> --certificate_output <output certificate pdf>
