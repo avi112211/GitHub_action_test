@@ -54,7 +54,7 @@ jobs:
           APPDOME_IOS_FS_ID: ${{ secrets.APPDOME_IOS_FS_ID }}
         run: |
           mkdir outputs # output dir for the fused app and appdome_certificate
-          pip3 install -r /appdome/requirements.txt
+          pip3 install -r appdome/requirements.txt
           # For Android apps:
           python3 appdome/appdome-api-python/appdome_api.py --app <apk/aab file> --sign_on_appdome --keystore <keystore file> \
                   --keystore_pass <keystore password> --keystore_alias <key alias> --key_pass <key password> \
