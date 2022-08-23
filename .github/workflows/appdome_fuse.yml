@@ -23,6 +23,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@master
+        with:
+          path: main
+          
+     # Cloning appdome-api-python github repository
+      - name: Cloning appdome-api-python github repository
+        uses: actions/checkout@master
+        with:
+          repository: Appdome/appdome-api-python
+          ref: refs/heads/main
+          path: appdome
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -35,13 +45,6 @@ jobs:
           echo sign app
           ls
           pwd
-          
-      # Cloning appdome-api-python github repository
-      - name: Cloning appdome-api-python github repository
-        uses: actions/checkout@master
-        with:
-          repository: Appdome/appdome-api-python
-          ref: refs/heads/main
       
       # Run appdome api script
       - name: Fuse with appdome
