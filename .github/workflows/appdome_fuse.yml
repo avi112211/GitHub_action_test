@@ -43,13 +43,13 @@ jobs:
         run: |
           echo Build app
           echo sign app
-          ls
+          ls main
           pwd
       
       # Run appdome api script
       - name: Fuse with appdome
         run: |
-          ls
+          ls appdome
           pwd
           env
           echo ${{ secrets.APPDOME_API_KEY }}
