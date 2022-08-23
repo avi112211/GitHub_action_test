@@ -48,11 +48,16 @@ jobs:
       
       # Run appdome api script
       - name: Fuse with appdome
+        env:
+          APPDOME_API_KEY: ${{ secrets.APPDOME_API_KEY }}
+          APPDOME_TEAM_ID: ${{ secrets.APPDOME_TEAM_ID }}
+          APPDOME_ANDROID_FS_ID: ${{ secrets.APPDOME_ANDROID_FS_ID }}
         run: |
-          ls appdome
           pwd
-          env
-          echo ${{ secrets.APPDOME_API_KEY }}
+          ls appdome
+          mkdir outputs
+          python3 appdome/appdome-api-python/appdome_api.py --app main/demo_app.apk --sign_on_appdome --keystore main/key.keystore \
+              --keystore_pass pass --keystore_alias alias --key_pass k_pass --output outputs/fused_app.apk --certificate_output outputs/certificate.pdf
     
           
 
