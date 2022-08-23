@@ -22,7 +22,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
         with:
           path: main
           
@@ -54,10 +54,18 @@ jobs:
           APPDOME_ANDROID_FS_ID: ${{ secrets.APPDOME_ANDROID_FS_ID }}
         run: |
           pwd
-          ls appdome
+          ls
           mkdir outputs
-          python3 appdome/appdome-api-python/appdome_api.py --app main/demo_app.apk --sign_on_appdome --keystore main/key.keystore \
-              --keystore_pass pass --keystore_alias alias --key_pass k_pass --output outputs/fused_app.apk --certificate_output outputs/certificate.pdf
+          python3 appdome/appdome-api-python/appdome_api.py --app main/demo_app.apk -ps -cf ${{ secrets.SHA1 }} \
+                    --output outputs/fused_app.apk --certificate_output outputs/certificate.pdf
+          ls outputs
+      
+      # Upload fuse output as an artifacts
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: outputs # path to output folder
     
           
 
