@@ -40,14 +40,14 @@ jobs:
       - name: Cloning appdome-api-python github repository
         uses: actions/checkout@master
         with:
-          name: Appdome/appdome-api-python
+          repository: Appdome/appdome-api-python
           ref: refs/heads/main
       
       # Run appdome api script
       - name: Fuse with appdome
         run: |
-          echo ls
-          echo pwd
+          ls
+          pwd
           env
           echo ${{ secrets.APPDOME_API_KEY }}
     
