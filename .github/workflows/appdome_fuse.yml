@@ -33,8 +33,8 @@ jobs:
         run: |
           echo Build app
           echo sign app
-          echo ls
-          echo pwd
+          ls
+          pwd
           
       # Cloning appdome-api-python github repository
       - name: Cloning appdome-api-python github repository
