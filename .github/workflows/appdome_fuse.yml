@@ -48,6 +48,8 @@ jobs:
         run: |
           echo ls
           echo pwd
+          env
+          echo ${{ secrets.APPDOME_API_KEY }}
     
           
 
