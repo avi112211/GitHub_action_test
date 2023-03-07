@@ -24,7 +24,7 @@ jobs:
           # APK file
           APP_FILE: "https://github.com/avi112211/GitHub_action_test/raw/main/app-release.apk"
           # Appdome FusionSetId iOS/Android
-          FUSION_SET_ID: ${{vars.APPDOME_ANDROID_FS_ID}}
+          FUSION_SET_ID: "fb04d100-91ad-11ed-bcff-897df33224f0"
           # iOS/Android Signin option
           SIGN_OPTIONS: "PRIVATE_SIGNING"
           # signing sha1 fingerprint
