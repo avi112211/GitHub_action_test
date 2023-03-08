@@ -16,7 +16,7 @@ jobs:
         with:
           path: main
       - name: cmd
-        run: pwd
+        run: ls -lR
       - name: Appdome build-2secure
         uses: Appdome/github_build-2secure@1.0
         with:
