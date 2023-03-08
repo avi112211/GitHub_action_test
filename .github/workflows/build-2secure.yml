@@ -12,7 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+        with:
+          path: main
+      - name: cmd
+        run: pwd
       - name: Appdome build-2secure
         uses: Appdome/github_build-2secure@1.0
         with:
@@ -26,5 +30,3 @@ jobs:
           SIGN_OPTIONS: "PRIVATE_SIGNING"
           # signing sha1 fingerprint
           SIGN_FINGERPRINT: ${{secrets.SHA1}}
-
-
